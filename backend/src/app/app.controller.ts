@@ -24,6 +24,6 @@ export class AppController {
 
   @Delete('star/:owner/:repo')
   deleteStar(@Param('owner') owner: string, @Param('repo') repo: string) {
-    return this.appService.starRepo(owner, repo);
+    return this.appService.unStarRepo(owner, repo);
   }
 }
