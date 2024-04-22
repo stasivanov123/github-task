@@ -1,4 +1,4 @@
-# Github test task
+# GitHub test task
 
 ## PAT
 

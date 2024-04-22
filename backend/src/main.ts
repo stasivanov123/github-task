@@ -8,15 +8,17 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AxiosErrorFilter } from './axios-error-filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new AxiosErrorFilter())
   const config = new DocumentBuilder()
-    .setTitle('Github test task')
-    .setDescription('A simple proxy to Github REST API')
+    .setTitle('GitHub test task')
+    .setDescription('A simple proxy to GitHub REST API')
     .setVersion('0.1')
     .build();
   const document = SwaggerModule.createDocument(app, config);
