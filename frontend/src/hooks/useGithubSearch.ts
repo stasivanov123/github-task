@@ -1,8 +1,7 @@
-import { SearchParamsDto } from '../../../backend/src/app/search-params.dto';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-export function useGithubSearch(params: SearchParamsDto) {
+export function useGithubSearch(params: any) {
   return useQuery<any, any>({
     queryKey: ['search', params],
     queryFn: async () =>

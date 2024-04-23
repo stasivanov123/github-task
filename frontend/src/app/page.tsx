@@ -6,10 +6,6 @@ import { Spinner } from './components/spinner';
 import { ResultsTable } from './components/resultsTable';
 import { StarButton } from './components/starButton';
 import { Pagination } from 'react-headless-pagination';
-import {
-  SearchParamsOrder,
-  SearchParamsSort,
-} from '../../../backend/src/app/search-params.dto';
 
 export default function Index() {
   const [q, setQ] = useSearchParamState('q', '');
@@ -24,8 +20,8 @@ export default function Index() {
     q,
     page,
     per_page,
-    sort: sort ? (sort as SearchParamsSort) : undefined,
-    order: sort && order ? (order as SearchParamsOrder) : undefined,
+    sort: sort ? sort : undefined,
+    order: sort && order ? order : undefined,
   });
 
   return (
@@ -48,13 +44,15 @@ export default function Index() {
               value={sort}
               onChange={(ev) => setSort(ev.target.value)}
               className={
-                (!!sort ? 'w-2/6' : 'w-3/6') +
+                (sort ? 'w-2/6' : 'w-3/6') +
                 ' mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
               }
             >
               <option value={''}>Sort by</option>
               {['stars', 'forks', 'help-wanted-issues', 'updated'].map((k) => (
-                <option value={k}>{k}</option>
+                <option value={k} key={k}>
+                  {k}
+                </option>
               ))}
             </select>
             {!!sort && (

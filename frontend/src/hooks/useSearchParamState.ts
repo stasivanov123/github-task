@@ -1,7 +1,7 @@
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 
-export function useSearchParamState<T>(
+export function useSearchParamState(
   key: string,
   initialValue: string
 ): [string, (val: string) => void] {
@@ -21,7 +21,7 @@ export function useSearchParamState<T>(
   );
 
   const value = searchParams.get(key) || initialValue;
-  const setValue = (value: any) => {
+  const setValue = (value: string) => {
     // noinspection JSIgnoredPromiseFromCall
     router.push(pathname + '?' + createQueryString(key, value));
   };

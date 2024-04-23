@@ -20,7 +20,7 @@ export class SearchParamsDto {
     description:
       'The query contains one or more search keywords and qualifiers',
   })
-  public q: string;
+  public q: string = '';
 
   @IsOptional()
   @IsEnum(SearchParamsSort)

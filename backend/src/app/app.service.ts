@@ -32,7 +32,7 @@ export class AppService {
     });
 
     if (result.data?.items?.length > 0) {
-      for (const item of result.data?.items) {
+      for (const item of result.data.items) {
         item.isStarred = await this.isStarredByCurrentUser(
           item?.owner?.login,
           item?.name
