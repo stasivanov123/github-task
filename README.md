@@ -22,3 +22,6 @@ Put token into GITHUB_TOKEN variable in `backend/.env`
 - Debugging issue with starring public repos ~1h
 - Basic frontend ~1.5h
 - Star/unstar ~30m
+- Misc ~1h
+
+Total: around 5h
