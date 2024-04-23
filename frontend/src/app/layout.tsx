@@ -1,4 +1,6 @@
 import './global.css';
+import { QueryProvider } from './queryProvider';
+import React from 'react';
 
 export const metadata = {
   title: 'Welcome to frontend',
@@ -12,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }

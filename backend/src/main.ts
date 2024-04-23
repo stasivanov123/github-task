@@ -15,7 +15,8 @@ async function bootstrap() {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   app.useGlobalPipes(new ValidationPipe());
-  app.useGlobalFilters(new AxiosErrorFilter())
+  app.useGlobalFilters(new AxiosErrorFilter());
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('GitHub test task')
     .setDescription('A simple proxy to GitHub REST API')
